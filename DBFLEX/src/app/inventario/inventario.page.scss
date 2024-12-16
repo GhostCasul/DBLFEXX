@@ -1,0 +1,30 @@
+ion-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+ion-card {
+  width: 100%;
+  max-width: 600px;
+  margin: 16px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ion-button {
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  ion-card {
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}

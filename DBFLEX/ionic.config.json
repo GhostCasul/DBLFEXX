@@ -1,0 +1,7 @@
+{
+  "name": "DBFLEX",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,26 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>DBFlex</ion-title>
+      <ion-buttons slot="end">
+        <ion-button style="--background: #9cc1d0; " size="small" (click)="cerrarSesion()" class="action-button">Cerrar Sesión</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="full" routerLink="/inventario-vendedor">
+            <ion-icon slot="start" name="cart"></ion-icon>
+            Inventario
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

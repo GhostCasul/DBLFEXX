@@ -1,0 +1,61 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button routerLink="/home">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Inventario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ productoSeleccionado.id ? 'Editar Producto' : 'Agregar Producto' }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="productoSeleccionado.nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Precio</ion-label>
+        <ion-input [(ngModel)]="productoSeleccionado.precio" type="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Cantidad</ion-label>
+        <ion-input [(ngModel)]="productoSeleccionado.cantidad" type="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Categoría</ion-label>
+        <ion-select [(ngModel)]="productoSeleccionado.categoria">
+          <ion-select-option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button expand="full" (click)="guardarProducto()">
+        {{ productoSeleccionado.id ? 'Actualizar' : 'Guardar' }}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="productos.length > 0">
+    <ion-card-header>
+      <ion-card-title>Productos en Inventario</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let producto of productos">
+          <ion-label>
+            <h2>{{ producto.nombre }}</h2>
+            <p>Precio: {{ producto.precio }} - Cantidad: {{ producto.cantidad }}</p>
+          </ion-label>
+          <ion-buttons slot="end">
+            <ion-button style="--background: #9cc1d0;" fill="clear" (click)="editarProducto(producto)">Editar</ion-button>
+            <ion-button style="--background: #d61515;" fill="clear" (click)="eliminarProducto(producto.id)">Eliminar</ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
